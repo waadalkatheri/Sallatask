@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/bg_button.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/default_dot.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/selected_dot.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/fragment_brand.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/fragment_prodect_details.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/item_image.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/item_product.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.19895833333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
