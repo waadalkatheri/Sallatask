@@ -10,6 +10,7 @@
 - Don’t use any library to implement images slider in the product details
   ##### Done
 - Don’t use XML file to add background on views
+
    I think we cant set color or them dynamic without an XML file, you can set the color from Backend and then you set it as a variable your in-app or use this way: 
    https://www.androprogrammer.com/2015/08/change-android-application-theme-runtime.html?fbclid=IwAR2aa_K9v7XNHJ2Nk3NyMlQbso1eAIQzqhlmxXaO3cFuutI2T2PkMtBo8bw
 - Use any dependency injection library you like it
