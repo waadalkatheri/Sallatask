@@ -58,7 +58,7 @@ class ProductDetailsFragment : Fragment() {
             is ProductDetailsViewState.SUCCESS -> {
 
                binding.tvProductPromo.rotation = 40.0f
-                binding.tvProductPromo.setBackgroundColor(Color.BLACK );
+                binding.tvProductPromo.setBackgroundColor(Color.parseColor("#FF000000"));
 
                 binding.apply {
                     pbLoading.isVisible = false

@@ -38,12 +38,12 @@ class ProductsAdapter(private val productsListClicks: ProductsListClicks) :
             binding.apply {
                 this.product = product
                 this.productClick = productsListClicks
-                buttomProduct.setBackgroundColor(Color.BLACK)
 
                 tvProductPromo.isVisible = product.promotion.title?.isNotEmpty() ?: false
                 tvProductOffer.isVisible = product.promotion.subTitle?.isNotEmpty() ?: false
                 tvProductPromo.rotation = 40.0f
-                tvProductPromo.setBackgroundColor(Color.BLACK );
+                buttonProduct.setBackgroundColor(Color.parseColor("#FF000000"))
+                tvProductPromo.setBackgroundColor(Color.parseColor("#FF000000"));
 
 
 
