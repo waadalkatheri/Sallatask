@@ -11,10 +11,7 @@
   ##### Done
 - Don’t use XML file to add background on views
 
-   I think we can't set color or themes dynamic without an XML file, you can set the color from Backend and then you set it as a variable and show it your in-app 
-   
-   or use this way: 
-   https://www.androprogrammer.com/2015/08/change-android-application-theme-runtime.html?fbclid=IwAR2aa_K9v7XNHJ2Nk3NyMlQbso1eAIQzqhlmxXaO3cFuutI2T2PkMtBo8bw
+  ##### Done
 - Use any dependency injection library you like it
   ##### Done
 - Use data binding & binding view
@@ -23,7 +20,6 @@
   ##### Done
 
 #### GET https://salla.sa/api/v1/brands/259940351?page=1&per_page=5 in the response, if cursor.next == null it’s mean this page last one
-  - *no need to use paging because the data is too small so the paging is over engineering* 
   
 #### GET https://salla.sa/api/v1/products/{product_id}/details
 
