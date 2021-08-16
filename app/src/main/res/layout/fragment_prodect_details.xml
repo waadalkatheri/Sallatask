@@ -38,20 +38,7 @@
                 android:textSize="@dimen/_16ssp" />
         </androidx.appcompat.widget.Toolbar>
 
-        <TextView
-            android:id="@+id/tv_product_promo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:gravity="center"
-            android:padding="@dimen/_4sdp"
-            android:text="@{response.product.promotion.title}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            tools:text="عرdص خاص" />
+
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/photos_viewpager"
@@ -61,6 +48,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_product_promo" />
+
+        <TextView
+            android:id="@+id/tv_product_promo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="216dp"
+            android:background="@drawable/rectangle_bg"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:paddingStart="@dimen/_50sdp"
+            android:text="@{response.product.promotion.title}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="عرص خاص" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

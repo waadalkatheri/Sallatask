@@ -9,6 +9,7 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,8 +21,10 @@ import com.example.task.ui.brand.adapters.ProductsListClicks
 import com.example.task.ui.brand.repositories.BrandRepository
 import com.example.task.ui.brand.viewmodels.BrandViewModel
 import com.example.task.ui.brand.viewmodels.BrandViewState
+import com.example.task.ui.brand.viewmodels.ProductViewState
 import com.example.task.ui.models.Product
 import com.example.task.utilities.viewModelFactory
+import kotlinx.coroutines.launch
 
 
 class BrandFragment : Fragment(), ProductsListClicks {
@@ -46,25 +49,51 @@ class BrandFragment : Fragment(), ProductsListClicks {
         super.onViewCreated(view, savedInstanceState)
         initializeValues()
         initializeObservable()
+        getUiData()
+    }
+
+    private fun getUiData() {
+        viewModel.apply {
+            getBrand()
+            getProducts()
+        }
     }
 
     private fun initializeObservable() {
-        viewModel.response.observe(viewLifecycleOwner, {
-            render(it)
+        viewModel.products.observe(viewLifecycleOwner, {
+            renderProducts(it)
+        })
+        viewModel.brand.observe(viewLifecycleOwner, {
+            renderBrand(it)
         })
     }
 
     // to render ui
-    private fun render(viewState: BrandViewState) {
+    private fun renderProducts(viewState: ProductViewState) {
+        when (viewState) {
+            is ProductViewState.LOADING -> binding.pbLoading.isVisible = true
+            is ProductViewState.SUCCESS -> {
+                lifecycleScope.launch {
+                    productsAdapter.submitData(viewState.payload)
+                }
+
+            }
+            is ProductViewState.FAILURE -> {
+                binding.pbLoading.isVisible = false
+                Toast.makeText(requireContext(), viewState.errorMsg, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun renderBrand(viewState: BrandViewState) {
         when (viewState) {
             is BrandViewState.LOADING -> binding.pbLoading.isVisible = true
             is BrandViewState.SUCCESS -> {
                 binding.apply {
                     pbLoading.isVisible = false
                     cardView.isVisible = true
-                    response = viewState.payload
+                    brand = viewState.payload
                 }
-                productsAdapter.submitList(viewState.payload.products)
             }
             is BrandViewState.FAILURE -> {
                 binding.pbLoading.isVisible = false
@@ -72,6 +101,7 @@ class BrandFragment : Fragment(), ProductsListClicks {
             }
         }
     }
+
 
     private fun initializeValues() {
         productsAdapter = ProductsAdapter(this)

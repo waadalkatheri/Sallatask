@@ -1,5 +1,6 @@
 package com.example.task.ui.productDetails.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,9 @@ class ProductDetailsFragment : Fragment() {
             is ProductDetailsViewState.LOADING -> binding.pbLoading.isVisible = true
             is ProductDetailsViewState.SUCCESS -> {
 
+               binding.tvProductPromo.rotation = 40.0f
+                binding.tvProductPromo.setBackgroundColor(Color.BLACK );
+
                 binding.apply {
                     pbLoading.isVisible = false
                     mViewPagerAdapter = ViewPagerAdapter(
@@ -68,6 +72,7 @@ class ProductDetailsFragment : Fragment() {
                     tvProductOffer.isVisible =
                         detailsViewState.payload.product.promotion.subTitle?.isNotEmpty() ?: false
                     photosViewpager.adapter = mViewPagerAdapter
+
                 }
             }
             is ProductDetailsViewState.FAILURE -> {
